@@ -1,0 +1,182 @@
+﻿[
+    {
+        "retestDate":  "2026-07-21",
+        "materialCode":  "BMAMISULPRIDEPOWDER1KG",
+        "id":  1,
+        "unitPrice":  "0.25",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Amisulpride Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "D24-105A",
+        "qtyOnHand":  "4.6"
+    },
+    {
+        "retestDate":  "2026-08-09",
+        "materialCode":  "BMAMITRIPTYLINEPOWDER1KG",
+        "id":  2,
+        "unitPrice":  "0.26",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Amitriptyline hydrochloride Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "D25-148",
+        "qtyOnHand":  "0.0742"
+    },
+    {
+        "retestDate":  "2026-06-11",
+        "materialCode":  "BMAMLODIPINEBESIPOWDER1KG",
+        "id":  3,
+        "unitPrice":  "0.48",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Amlodipine Besilate Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "M-D24-009A",
+        "qtyOnHand":  "6.272304"
+    },
+    {
+        "retestDate":  "2026-07-17",
+        "materialCode":  "BMCLOBAZAMPOWDER1KG",
+        "id":  4,
+        "unitPrice":  "3.81",
+        "upcomingProductionDate":  "2026-12-01",
+        "description":  "Clobazam Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "M-D24-024A",
+        "qtyOnHand":  "11.494431065678"
+    },
+    {
+        "retestDate":  "2026-08-13",
+        "materialCode":  "BMDISODIUMEDETATEPOWDER1K",
+        "id":  5,
+        "unitPrice":  "0.05",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Disodium Edetate Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "M-D24-065A",
+        "qtyOnHand":  "0.19105"
+    },
+    {
+        "retestDate":  "2026-06-12",
+        "materialCode":  "BMGABAPENTINPOWDER1KG",
+        "id":  6,
+        "unitPrice":  "0.04",
+        "upcomingProductionDate":  "2026-12-01",
+        "description":  "Gabapentin  Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "D24-115A",
+        "qtyOnHand":  "10.889508"
+    },
+    {
+        "retestDate":  "2026-10-04",
+        "materialCode":  "BMGABAPENTINPOWDER1KG",
+        "id":  7,
+        "unitPrice":  "0.04",
+        "upcomingProductionDate":  "2026-12-01",
+        "description":  "Gabapentin  Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "D25-193",
+        "qtyOnHand":  "8.485984"
+    },
+    {
+        "retestDate":  "2026-07-10",
+        "materialCode":  "BMHYDROCHLORICACIDCON1LIT",
+        "id":  8,
+        "unitPrice":  "0.01",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Hydrochloric Acid Concentrated B.P/Ph.Eur 1Litre",
+        "lotBatchNo":  "D24-048A",
+        "qtyOnHand":  "3.10325"
+    },
+    {
+        "retestDate":  "2026-07-10",
+        "materialCode":  "BMHYDROCHLORICACIDCON1LIT",
+        "id":  9,
+        "unitPrice":  "0.01",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Hydrochloric Acid Concentrated B.P/Ph.Eur 1Litre",
+        "lotBatchNo":  "M-D24-004A",
+        "qtyOnHand":  "6.37666"
+    },
+    {
+        "retestDate":  "2026-08-13",
+        "materialCode":  "BMITRACONAZOLEPOWDER1KG",
+        "id":  10,
+        "unitPrice":  "0.36",
+        "upcomingProductionDate":  "2026-12-01",
+        "description":  "Itraconazole  Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "M-D24-080A",
+        "qtyOnHand":  "23.002496999999998"
+    },
+    {
+        "retestDate":  "2026-08-13",
+        "materialCode":  "BMITRACONAZOLEPOWDER1KG",
+        "id":  11,
+        "unitPrice":  "0.36",
+        "upcomingProductionDate":  "2026-12-01",
+        "description":  "Itraconazole  Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "M-D24-081A",
+        "qtyOnHand":  "3.965895"
+    },
+    {
+        "retestDate":  "2026-08-13",
+        "materialCode":  "BMITRACONAZOLEPOWDER1KG",
+        "id":  12,
+        "unitPrice":  "0.36",
+        "upcomingProductionDate":  "2026-12-01",
+        "description":  "Itraconazole  Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "M-D24-078A",
+        "qtyOnHand":  "18.371173"
+    },
+    {
+        "retestDate":  "2026-03-22",
+        "materialCode":  "BMLORAZEPAMPOWDER1KG",
+        "id":  13,
+        "unitPrice":  "1.44",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Lorazepam Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "D24-080A",
+        "qtyOnHand":  "7.25845"
+    },
+    {
+        "retestDate":  "2026-05-16",
+        "materialCode":  "BMMIDAZOLAMPOWDER1KG",
+        "id":  14,
+        "unitPrice":  "9.0",
+        "upcomingProductionDate":  "2026-12-01",
+        "description":  "Midazolam Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "M-D24-175A",
+        "qtyOnHand":  "0.7051900000000001"
+    },
+    {
+        "retestDate":  "2026-06-11",
+        "materialCode":  "BMRISPERIDONEPOWDER1KG",
+        "id":  15,
+        "unitPrice":  "2.02",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Risperidone  Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "D25-140",
+        "qtyOnHand":  "0.868"
+    },
+    {
+        "retestDate":  "2026-06-07",
+        "materialCode":  "BMSODIUMCHLORIDEPOWDER1KG",
+        "id":  16,
+        "unitPrice":  "0.0",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Sodium Chloride Powder B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "D25-131",
+        "qtyOnHand":  "246.62649"
+    },
+    {
+        "retestDate":  "2026-08-07",
+        "materialCode":  "BMSODIUMDIHYDPHOSPHATE1KG",
+        "id":  17,
+        "unitPrice":  "0.01",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Sodium dihyd phosphate dihydrate B.P/Ph.Eur 1kg",
+        "lotBatchNo":  "D24-078A",
+        "qtyOnHand":  "5.8413699999999995"
+    },
+    {
+        "retestDate":  "2026-03-07",
+        "materialCode":  "BMSODIUMGLUCONATEUSP1KG",
+        "id":  18,
+        "unitPrice":  "0.02",
+        "upcomingProductionDate":  "2026-11-01",
+        "description":  "Sodium Gluconate USP 1Kg",
+        "lotBatchNo":  "D24-053A",
+        "qtyOnHand":  "5.77041"
+    }
+]

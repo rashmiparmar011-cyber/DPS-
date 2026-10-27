@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BNS Group Demand Planning System - Product Planning, RM Management, CMO, Export DPS">
+    <title>BNS GROUP - Demand Planning System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-logo">BS</div>
+                <span class="brand-text">BNS GROUP</span>
+            </div>
+
+            <nav class="sidebar-nav" id="sidebarNav">
+                <div class="nav-section-title">Main</div>
+
+                <a class="nav-item" data-page="thame" onclick="navigateTo('thame')">
+                    <span class="nav-icon"><i class="fas fa-chart-line"></i></span>
+                    <span class="nav-label">Thame</span>
+                    <span class="nav-arrow">&#9654;</span>
+                </a>
+
+                <a class="nav-item" data-page="cmo" onclick="navigateTo('cmo')">
+                    <span class="nav-icon"><i class="fas fa-industry"></i></span>
+                    <span class="nav-label">CMO</span>
+                </a>
+
+                <a class="nav-item" data-page="shop-order" onclick="navigateTo('shop-order')">
+                    <span class="nav-icon"><i class="fas fa-clipboard-list"></i></span>
+                    <span class="nav-label">Shop Order</span>
+                </a>
+
+                <a class="nav-item" data-page="rm-pm-tracking" onclick="navigateTo('rm-pm-tracking')">
+                    <span class="nav-icon"><i class="fas fa-bolt"></i></span>
+                    <span class="nav-label">RM PM Tracking</span>
+                </a>
+
+                <a class="nav-item active" data-page="rm-pm-dashboard" onclick="navigateTo('rm-pm-dashboard')">
+                    <span class="nav-icon"><i class="fas fa-gem"></i></span>
+                    <span class="nav-label">RM PM Dashboard</span>
+                </a>
+
+                <div class="nav-section-title">New Modules</div>
+
+                <a class="nav-item" data-page="product-planning" onclick="navigateTo('product-planning')">
+                    <span class="nav-icon"><i class="fas fa-boxes-stacked"></i></span>
+                    <span class="nav-label">Product Planning</span>
+                </a>
+
+                <a class="nav-item" data-page="rm-management" onclick="navigateTo('rm-management')">
+                    <span class="nav-icon"><i class="fas fa-cubes"></i></span>
+                    <span class="nav-label">RM Management</span>
+                </a>
+
+                <a class="nav-item" data-page="cmo-management" onclick="navigateTo('cmo-management')">
+                    <span class="nav-icon"><i class="fas fa-building"></i></span>
+                    <span class="nav-label">CMO Management</span>
+                </a>
+
+                <a class="nav-item" data-page="export-dps" onclick="navigateTo('export-dps')">
+                    <span class="nav-icon"><i class="fas fa-globe"></i></span>
+                    <span class="nav-label">Export DPS</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="main-area">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-left">
+                    <button class="hamburger-btn" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="header-right">
+                    <span class="last-updated" id="lastUpdated">Last Updated Date : 26-OCT-2026 12:00 AM</span>
+                    <div class="user-avatar" title="User"><i class="fas fa-power-off"></i></div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="page-content" id="pageContent">
+                <!-- Dynamic content loaded here -->
+            </main>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Modal Container -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal" id="modalDialog">
+            <div class="modal-header">
+                <h3 id="modalTitle">Dialog</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer" id="modalFooter"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/dataStore.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/productPlanning.js"></script>
+    <script src="js/rmManagement.js"></script>
+    <script src="js/cmoManagement.js"></script>
+    <script src="js/exportDps.js"></script>
+    <script src="js/existingPages.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
