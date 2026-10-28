@@ -3,7 +3,7 @@
    ============================================================ */
 
 const App = {
-    currentPage: 'thame',
+    currentPage: 'rm-dashboard',
 
     async init() {
         try {
@@ -14,7 +14,7 @@ const App = {
             window.addEventListener('hashchange', () => this.handleRouting());
 
             // Initialize route
-            const initialHash = window.location.hash.replace('#', '') || 'thame';
+            const initialHash = window.location.hash.replace('#', '') || 'rm-dashboard';
             this.navigateTo(initialHash);
 
             // Update header date
@@ -152,3 +152,4 @@ function toggleThemeMenu(event) {
 document.addEventListener('DOMContentLoaded', () => {
     App.init();
 });
+
