@@ -9,6 +9,13 @@ const DataStore = {
     async init() {
         if (this._loaded) return;
         
+        // Preload from static data bundle if available
+        if (typeof window !== 'undefined' && window.DPS_STATIC_DATA) {
+            for (const key of Object.keys(window.DPS_STATIC_DATA)) {
+                this._data[key] = window.DPS_STATIC_DATA[key];
+            }
+        }
+
         const files = [
             { key: 'products', file: 'data/products.json' },
             { key: 'rmpm', file: 'data/rmpm.json' },
@@ -23,29 +30,45 @@ const DataStore = {
             { key: 'backOrders', file: 'data/back_orders.json' }
         ];
 
+        const isHttp = typeof window !== 'undefined' && window.location && window.location.protocol.startsWith('http');
+
         const promises = files.map(async ({ key, file }) => {
             // Check localStorage first for user modifications
             const stored = localStorage.getItem(`dps_${key}`);
             if (stored) {
                 try {
-                    this._data[key] = JSON.parse(stored);
-                    return;
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        this._data[key] = parsed;
+                        return;
+                    }
                 } catch(e) {
                     console.warn(`Failed to parse stored data for ${key}`, e);
                 }
             }
-            // Load from JSON file
-            try {
-                const response = await fetch(file);
-                if (response.ok) {
-                    this._data[key] = await response.json();
-                } else {
-                    console.warn(`Failed to load ${file}: ${response.status}`);
+            // Load from JSON file if running on web server
+            if (isHttp) {
+                try {
+                    const response = await fetch(file);
+                    if (response.ok) {
+                        const fetched = await response.json();
+                        if (Array.isArray(fetched) && fetched.length > 0) {
+                            this._data[key] = fetched;
+                            return;
+                        }
+                    }
+                } catch(e) {
+                    console.warn(`Error loading ${file}`, e);
+                }
+            }
+
+            // Fallback to static bundle if empty or not set
+            if (!this._data[key] || this._data[key].length === 0) {
+                if (typeof window !== 'undefined' && window.DPS_STATIC_DATA && window.DPS_STATIC_DATA[key]) {
+                    this._data[key] = window.DPS_STATIC_DATA[key];
+                } else if (!this._data[key]) {
                     this._data[key] = [];
                 }
-            } catch(e) {
-                console.warn(`Error loading ${file}`, e);
-                this._data[key] = [];
             }
         });
 
@@ -409,6 +432,9 @@ const DataStore = {
     },
 
     get(key) {
+        if ((!this._data[key] || this._data[key].length === 0) && typeof window !== 'undefined' && window.DPS_STATIC_DATA && window.DPS_STATIC_DATA[key]) {
+            return window.DPS_STATIC_DATA[key];
+        }
         return this._data[key] || [];
     },
 
