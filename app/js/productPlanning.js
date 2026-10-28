@@ -56,12 +56,6 @@ const ProductPlanning = {
                 <option value="EXPORT">Export</option>
                 <option value="DOMESTIC">Domestic</option>
             </select>
-            <button class="btn btn-primary" onclick="ProductPlanning.showAddForm()">
-                <i class="fas fa-plus"></i> Add Product Plan
-            </button>
-            <button class="btn btn-info" onclick="ProductPlanning.showAutoPlanModal()">
-                <i class="fas fa-magic"></i> Auto-Plan (Sales &amp; Capacity)
-            </button>
             <button class="btn btn-warning btn-icon" title="Export CSV" onclick="ProductPlanning.exportData()">
                 <i class="fas fa-file-export"></i>
             </button>
