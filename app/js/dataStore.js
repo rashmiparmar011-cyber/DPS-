@@ -18,7 +18,9 @@ const DataStore = {
             { key: 'purchaseOrders', file: 'data/purchase_orders.json' },
             { key: 'shopOrders', file: 'data/shop_orders.json' },
             { key: 'rmpmNotIssued', file: 'data/rmpm_not_issued.json' },
-            { key: 'production', file: 'data/production.json' }
+            { key: 'production', file: 'data/production.json' },
+            { key: 'thamePlanning', file: 'data/thame_planning.json' },
+            { key: 'backOrders', file: 'data/back_orders.json' }
         ];
 
         const promises = files.map(async ({ key, file }) => {

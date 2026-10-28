@@ -9,18 +9,93 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <!-- Top Header Bar matching Image 2 -->
+    <header class="bns-header">
+        <div class="bns-brand-wrapper">
+            <div class="bns-logo-circle">BS</div>
+            <span class="bns-brand-title">BNS GROUP</span>
+            <button class="bns-hamburger-btn" onclick="toggleSidebar()" title="Toggle Sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="bns-header-right">
+            <span class="bns-last-updated" id="lastUpdated">Last Updated Date : 28-OCT-2026 12:00 AM</span>
+            <button class="bns-logout-btn" title="Sign Out / Exit">
+                <i class="fas fa-power-off"></i>
+            </button>
+        </div>
+    </header>
+
     <div class="app-layout">
-        <!-- Sidebar -->
+        <!-- Sidebar with Mountain Background matching Image 2 -->
         <aside class="sidebar" id="sidebar">
-            <div class="sidebar-brand">
-                <div class="brand-logo">BS</div>
-                <span class="brand-text">BNS GROUP</span>
-            </div>
-
             <nav class="sidebar-nav" id="sidebarNav">
-                <div class="nav-section-title">Dashboards</div>
+                <!-- Theme Option -->
+                <div class="nav-item nav-theme-item" onclick="toggleThemeMenu(event)" title="Theme: Mountain Peak">
+                    <span class="nav-icon"><i class="fas fa-mountain"></i></span>
+                    <span class="nav-label">Theme</span>
+                    <i class="fas fa-chevron-down nav-chevron-sm" style="margin-left: auto; font-size: 10px;"></i>
+                </div>
 
-                <a class="nav-item active" data-page="rm-dashboard" onclick="navigateTo('rm-dashboard')">
+                <!-- CMO Accordion Menu matching Image 2 -->
+                <div class="nav-accordion-group" id="cmoGroup">
+                    <div class="nav-group-header" onclick="toggleAccordion('cmoGroup')">
+                        <div class="group-title-left">
+                            <i class="fas fa-shopping-bag" style="color: #f97316;"></i>
+                            <span>CMO</span>
+                        </div>
+                        <i class="fas fa-chevron-down group-chevron"></i>
+                    </div>
+                    <div class="nav-group-items">
+                        <a class="nav-item" data-page="products" onclick="navigateTo('products')">
+                            <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                            <span class="nav-label">Data</span>
+                        </a>
+                        <a class="nav-item active active-pink" data-page="thame" onclick="navigateTo('thame')">
+                            <span class="nav-icon"><i class="fas fa-chart-line"></i></span>
+                            <span class="nav-label">Manufacturing Planning</span>
+                        </a>
+                        <a class="nav-item" data-page="rm-responsibility" onclick="navigateTo('rm-responsibility')">
+                            <span class="nav-icon"><i class="fas fa-asterisk"></i></span>
+                            <span class="nav-label">RM Responsibility Master</span>
+                        </a>
+                        <a class="nav-item" data-page="wip" onclick="navigateTo('wip')">
+                            <span class="nav-icon"><i class="fas fa-truck"></i></span>
+                            <span class="nav-label">Quantity In Progress</span>
+                        </a>
+                        <a class="nav-item" data-page="back-order" onclick="navigateTo('back-order')">
+                            <span class="nav-icon"><i class="fas fa-clipboard-list"></i></span>
+                            <span class="nav-label">Back Order</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Shop Order -->
+                <a class="nav-item" data-page="shop-order" onclick="navigateTo('shop-order')">
+                    <span class="nav-icon"><i class="fas fa-basket-shopping"></i></span>
+                    <span class="nav-label">Shop Order</span>
+                </a>
+
+                <!-- RM PM Tracking -->
+                <a class="nav-item" data-page="rm-pm-tracking" onclick="navigateTo('rm-pm-tracking')">
+                    <span class="nav-icon"><i class="fas fa-paper-plane"></i></span>
+                    <span class="nav-label">RM PM Tracking</span>
+                </a>
+
+                <!-- RM PM Dashboard -->
+                <a class="nav-item" data-page="rm-pm-dashboard" onclick="navigateTo('rm-pm-dashboard')">
+                    <span class="nav-icon"><i class="fas fa-gauge-high"></i></span>
+                    <span class="nav-label">RM PM Dashboard</span>
+                </a>
+
+                <!-- ==============================================
+                     NEW TABS ADDED OVER THIS THEME (RED BOX AREA)
+                     ============================================== -->
+                <div class="nav-section-title" style="margin-top: 14px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.12);">
+                    Dashboards
+                </div>
+
+                <a class="nav-item" data-page="rm-dashboard" onclick="navigateTo('rm-dashboard')">
                     <span class="nav-icon"><i class="fas fa-boxes-stacked"></i></span>
                     <span class="nav-label">RM Dashboard</span>
                     <span class="nav-badge" style="background:#ef4444;font-size:10px;">18</span>
@@ -32,7 +107,9 @@
                     <span class="nav-badge" style="background:#8b5cf6;font-size:10px;">£380k</span>
                 </a>
 
-                <div class="nav-section-title">Planning &amp; Management</div>
+                <div class="nav-section-title">
+                    Planning &amp; Management
+                </div>
 
                 <a class="nav-item" data-page="product-planning" onclick="navigateTo('product-planning')">
                     <span class="nav-icon"><i class="fas fa-cubes-stacked"></i></span>
@@ -53,53 +130,11 @@
                     <span class="nav-icon"><i class="fas fa-globe"></i></span>
                     <span class="nav-label">Export DPS</span>
                 </a>
-
-                <!-- Operations Section (Hidden)
-                <div class="nav-section-title">Operations</div>
-
-                <a class="nav-item" data-page="thame" onclick="navigateTo('thame')">
-                    <span class="nav-icon"><i class="fas fa-chart-line"></i></span>
-                    <span class="nav-label">Thame Operations</span>
-                </a>
-
-                <a class="nav-item" data-page="shop-order" onclick="navigateTo('shop-order')">
-                    <span class="nav-icon"><i class="fas fa-clipboard-list"></i></span>
-                    <span class="nav-label">Shop Order</span>
-                </a>
-
-                <a class="nav-item" data-page="rm-pm-tracking" onclick="navigateTo('rm-pm-tracking')">
-                    <span class="nav-icon"><i class="fas fa-bolt"></i></span>
-                    <span class="nav-label">RM PM Tracking</span>
-                </a>
-
-                <a class="nav-item" data-page="rm-pm-dashboard" onclick="navigateTo('rm-pm-dashboard')">
-                    <span class="nav-icon"><i class="fas fa-gem"></i></span>
-                    <span class="nav-label">Operations Master View</span>
-                </a>
-
-                <a class="nav-item" data-page="cmo" onclick="navigateTo('cmo')">
-                    <span class="nav-icon"><i class="fas fa-table"></i></span>
-                    <span class="nav-label">CMO Stock View</span>
-                </a>
-                -->
             </nav>
         </aside>
 
         <!-- Main Content -->
         <div class="main-area">
-            <!-- Header -->
-            <header class="header">
-                <div class="header-left">
-                    <button class="hamburger-btn" onclick="toggleSidebar()">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-                <div class="header-right">
-                    <span class="last-updated" id="lastUpdated">Last Updated Date : 26-OCT-2026 12:00 AM</span>
-                    <div class="user-avatar" title="User"><i class="fas fa-power-off"></i></div>
-                </div>
-            </header>
-
             <!-- Page Content -->
             <main class="page-content" id="pageContent">
                 <!-- Dynamic content loaded here -->

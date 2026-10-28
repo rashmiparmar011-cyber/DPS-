@@ -53,26 +53,28 @@ html, body {
    ============================================================ */
 .app-layout {
     display: flex;
-    height: 100vh;
+    height: calc(100vh - 52px);
     overflow: hidden;
 }
 
-/* Sidebar */
+/* Sidebar with Mountain Peaks Background */
 .sidebar {
-    width: var(--sidebar-width);
-    min-width: var(--sidebar-width);
-    background: var(--sidebar-bg);
+    width: 250px;
+    min-width: 250px;
+    background: linear-gradient(rgba(18, 22, 31, 0.92), rgba(18, 22, 31, 0.85)), url('../assets/sidebar_mountain_bg.jpg'), url('assets/sidebar_mountain_bg.jpg') center bottom / cover no-repeat !important;
+    color: #cbd5e1;
     display: flex;
     flex-direction: column;
     transition: var(--transition);
     z-index: 100;
     position: relative;
-    overflow: hidden;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .sidebar.collapsed {
-    width: var(--sidebar-collapsed-width);
-    min-width: var(--sidebar-collapsed-width);
+    width: 64px;
+    min-width: 64px;
 }
 
 .sidebar-brand {
@@ -137,7 +139,7 @@ html, body {
 .sidebar-nav {
     flex: 1;
     overflow-y: auto;
-    padding: 8px 0;
+    padding: 0.65rem 0.5rem;
 }
 
 .sidebar-nav::-webkit-scrollbar {
@@ -145,48 +147,138 @@ html, body {
 }
 
 .sidebar-nav::-webkit-scrollbar-thumb {
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.15);
     border-radius: 2px;
+}
+
+/* Accordion Group (CMO, etc.) */
+.nav-accordion-group {
+    margin-bottom: 0.35rem;
+}
+
+.nav-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 4px;
+    transition: background 0.15s ease;
+}
+
+.nav-group-header:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-group-header .group-title-left {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.nav-group-header .group-chevron {
+    font-size: 10px;
+    transition: transform 0.2s ease;
+}
+
+.nav-accordion-group.collapsed .group-chevron {
+    transform: rotate(-90deg);
+}
+
+.nav-accordion-group.collapsed .nav-group-items {
+    display: none;
+}
+
+.nav-group-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-left: 0.65rem;
 }
 
 .nav-item {
     display: flex;
     align-items: center;
-    padding: 10px 16px;
-    color: var(--sidebar-text);
+    padding: 0.52rem 0.75rem;
+    color: #cbd5e1;
     cursor: pointer;
-    transition: var(--transition);
-    gap: 10px;
+    transition: all 0.15s ease;
+    gap: 0.65rem;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 0.81rem;
     border-left: 3px solid transparent;
     white-space: nowrap;
-    position: relative;
+    border-radius: 4px;
+    margin: 1px 0;
 }
 
 .nav-item:hover {
-    background: var(--sidebar-hover);
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
 }
 
 .nav-item.active {
-    background: rgba(231, 76, 60, 0.15);
-    border-left-color: var(--accent-red);
-    color: #fff;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-left: 3px solid #38bdf8 !important;
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* Hot pink active highlight for Thame Manufacturing Planning (Image 2) */
+.nav-item.active-pink,
+.nav-item[data-page="thame"].active {
+    color: #e91e63 !important;
+    background: rgba(233, 30, 99, 0.14) !important;
+    font-weight: 700 !important;
+    border-left: 3px solid #e91e63 !important;
+}
+
+.nav-item.active-pink .nav-icon,
+.nav-item.active-pink .nav-label,
+.nav-item[data-page="thame"].active .nav-icon,
+.nav-item[data-page="thame"].active .nav-label {
+    color: #e91e63 !important;
 }
 
 .nav-item .nav-icon {
-    width: 20px;
+    width: 18px;
     text-align: center;
     flex-shrink: 0;
-    font-size: 14px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .nav-item .nav-label {
     flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-.sidebar.collapsed .nav-label {
-    display: none;
+.sidebar.collapsed .brand-text,
+.sidebar.collapsed .nav-label,
+.sidebar.collapsed .nav-badge,
+.sidebar.collapsed .nav-section-title,
+.sidebar.collapsed .group-title-left span,
+.sidebar.collapsed .group-chevron,
+.sidebar.collapsed .nav-chevron-sm {
+    display: none !important;
+}
+
+.sidebar.collapsed .nav-group-header,
+.sidebar.collapsed .nav-item {
+    justify-content: center;
+    padding: 0.6rem 0;
+}
+
+.sidebar.collapsed .nav-group-items {
+    padding-left: 0;
 }
 
 .nav-item .nav-badge {
@@ -197,25 +289,22 @@ html, body {
     font-size: 10px;
     min-width: 18px;
     text-align: center;
-}
-
-.sidebar.collapsed .nav-badge {
-    display: none;
+    margin-left: auto;
 }
 
 .nav-section-title {
-    padding: 12px 16px 4px;
+    padding: 10px 12px 4px;
     font-size: 10px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--text-light);
-    font-weight: 600;
+    letter-spacing: 1.2px;
+    color: #94a3b8;
+    font-weight: 700;
     white-space: nowrap;
 }
 
 .sidebar.collapsed .nav-section-title {
     text-align: center;
-    padding: 12px 4px 4px;
+    padding: 10px 2px 2px;
     font-size: 8px;
 }
 
@@ -1744,4 +1833,411 @@ mark {
 .svg-bar-group:hover rect {
     filter: brightness(0.92);
 }
+
+/* ==========================================================================
+   BNS GROUP THEME & THAME MANUFACTURING PLANNING STYLING (Image 2)
+   ========================================================================== */
+
+/* Top Header Bar */
+.bns-header {
+    height: 52px;
+    background-color: #12161f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.25rem;
+    color: #ffffff;
+    z-index: 1000;
+    flex-shrink: 0;
+}
+
+.bns-brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.bns-logo-circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #38bdf8;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.bns-brand-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.bns-hamburger-btn {
+    background: transparent;
+    border: none;
+    color: #cbd5e1;
+    cursor: pointer;
+    padding: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.bns-hamburger-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.bns-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.bns-last-updated {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    letter-spacing: 0.02em;
+}
+
+.bns-logout-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #f95738;
+    border: none;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    font-size: 14px;
+}
+
+.bns-logout-btn:hover {
+    background-color: #ea580c;
+}
+
+/* Thame Planning View Components matching Image 2 */
+.thame-planning-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    padding: 1.25rem 1.5rem;
+}
+
+.thame-header-section {
+    margin-bottom: 1.15rem;
+}
+
+.thame-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.thame-filter-bar {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.filter-field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.filter-field-group label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #475569;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.thame-input {
+    height: 34px;
+    border: 1px solid #cbd5e1;
+    border-radius: 3px;
+    padding: 0 0.65rem;
+    font-size: 0.8rem;
+    background: #f8fafc;
+    color: #1e293b;
+    box-sizing: border-box;
+}
+
+.thame-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background: #ffffff;
+}
+
+#thameDesc { width: 260px; }
+#thameFreezeFrom, #thameFreezeTo { width: 160px; }
+
+.thame-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.thame-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+    flex-shrink: 0;
+    font-size: 13px;
+}
+
+.thame-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-green-search { background-color: #4caf50; }
+.btn-pink-calendar { background-color: #e91e63; }
+.btn-blue-add { background-color: #2196f3; }
+.btn-olive-download { background-color: #afb42b; }
+.btn-lightgreen-clear { background-color: #81c784; }
+.btn-yellow-file { background-color: #fbc02d; }
+.btn-red-delete { background-color: #f44336; }
+
+.thame-bulk-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    padding-top: 0.15rem;
+}
+
+.select-all-label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #334155;
+    cursor: pointer;
+    margin: 0;
+}
+
+.thame-table-wrapper {
+    border: 1px solid #e2e8f0;
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+    background: #ffffff;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: auto;
+}
+
+.thame-grid-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.thame-grid-table th {
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 600;
+    padding: 0.6rem 0.5rem;
+    border: 1px solid #e2e8f0;
+    white-space: nowrap;
+    font-size: 0.78rem;
+}
+
+.thame-grid-table td {
+    padding: 0.55rem 0.5rem;
+    border: 1px solid #e2e8f0;
+    vertical-align: middle;
+    background: #ffffff;
+    color: #1e293b;
+    font-size: 0.8rem;
+}
+
+.thame-grid-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+.row-rm-pm-issue td { background-color: rgba(244, 67, 54, 0.04); }
+.row-rm-pm-issue td:first-child { border-left: 4px solid #f44336; }
+.row-frozen td { background-color: rgba(158, 158, 158, 0.08); }
+.row-frozen td:first-child { border-left: 4px solid #9e9e9e; }
+.row-stock-expiry td { background-color: rgba(251, 192, 45, 0.08); }
+.row-stock-expiry td:first-child { border-left: 4px solid #fbc02d; }
+
+.row-action-pair {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    justify-content: center;
+}
+
+.thame-btn-sm {
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    transition: opacity 0.15s ease;
+    flex-shrink: 0;
+}
+
+.btn-pink-refresh { background-color: #e91e63; }
+.btn-pink-agree { background-color: #e91e63; }
+.btn-green-shoporder { background-color: #81c784; }
+.btn-green-comments { background-color: #81c784; }
+
+.btn-text-freeze {
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    color: #64748b;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-text-freeze:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.freeze-tag {
+    background: #e2e8f0;
+    color: #334155;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.thame-table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.35rem 0.75rem;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+}
+
+.thame-pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+    color: #475569;
+}
+
+.pag-btn {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pag-btn:hover:not(:disabled) {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+.pag-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pag-label {
+    font-size: 0.78rem;
+    color: #475569;
+}
+
+.pag-input {
+    width: 45px;
+    height: 26px;
+    text-align: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    box-sizing: border-box;
+}
+
+.thame-select-sm {
+    height: 26px;
+    border: 1px solid #cbd5e1;
+    border-radius: 3px;
+    font-size: 0.78rem;
+    padding: 0 0.35rem;
+    background: #ffffff;
+}
+
+.thame-legend-bar {
+    display: flex;
+    align-items: center;
+    padding-top: 0.25rem;
+    padding-bottom: 0.5rem;
+}
+
+.thame-legend {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.legend-box {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 1px;
+}
+
+.box-rm-pm { background-color: #f44336; }
+.box-freeze { background-color: #9e9e9e; }
+.box-expiry { background-color: #fbc02d; }
+
 

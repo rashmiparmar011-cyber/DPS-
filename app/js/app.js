@@ -3,7 +3,7 @@
    ============================================================ */
 
 const App = {
-    currentPage: 'rm-dashboard',
+    currentPage: 'thame',
 
     async init() {
         try {
@@ -14,7 +14,7 @@ const App = {
             window.addEventListener('hashchange', () => this.handleRouting());
 
             // Initialize route
-            const initialHash = window.location.hash.replace('#', '') || 'rm-dashboard';
+            const initialHash = window.location.hash.replace('#', '') || 'thame';
             this.navigateTo(initialHash);
 
             // Update header date
@@ -40,14 +40,16 @@ const App = {
         const navItems = document.querySelectorAll('.sidebar-nav .nav-item');
         navItems.forEach(item => {
             const dataPage = item.getAttribute('data-page');
-            if (dataPage === page ||
-                (page === 'rm-dashboard' && dataPage === 'rm-pm-dashboard') ||
-                (page === 'rm-pm-dashboard' && dataPage === 'rm-dashboard') ||
-                (page === 'cmo-dashboard' && dataPage === 'cmo') ||
-                (page === 'cmo' && dataPage === 'cmo-dashboard')) {
+            if (dataPage === page) {
                 item.classList.add('active');
+                if (page === 'thame' || page === 'manufacturing-planning') {
+                    item.classList.add('active-pink');
+                } else {
+                    item.classList.remove('active-pink');
+                }
             } else {
                 item.classList.remove('active');
+                item.classList.remove('active-pink');
             }
         });
 
@@ -57,7 +59,6 @@ const App = {
         // Render target page
         switch (page) {
             case 'rm-dashboard':
-            case 'rm-pm-dashboard':
                 if (typeof RMDashboard !== 'undefined') {
                     RMDashboard.render();
                 } else {
@@ -65,17 +66,26 @@ const App = {
                 }
                 break;
             case 'cmo-dashboard':
-            case 'cmo':
                 if (typeof CMODashboard !== 'undefined') {
                     CMODashboard.render();
                 } else {
                     ExistingPages.renderCMO();
                 }
                 break;
+            case 'cmo':
+                ExistingPages.renderCMO();
+                break;
             case 'product-planning':
                 ProductPlanning.render();
                 break;
+            case 'products':
+            case 'data':
+                ProductPlanning.render();
+                break;
             case 'rm-management':
+                RMManagement.render();
+                break;
+            case 'rm-responsibility':
                 RMManagement.render();
                 break;
             case 'cmo-management':
@@ -90,15 +100,22 @@ const App = {
             case 'rm-pm-tracking':
                 ExistingPages.renderRMPMTracking();
                 break;
+            case 'rm-pm-dashboard':
+                ExistingPages.renderDashboard();
+                break;
             case 'thame':
+            case 'manufacturing-planning':
                 ExistingPages.renderThame();
                 break;
+            case 'wip':
+            case 'quantity-in-progress':
+                ExistingPages.renderWIP();
+                break;
+            case 'back-order':
+                ExistingPages.renderBackOrder();
+                break;
             default:
-                if (typeof RMDashboard !== 'undefined') {
-                    RMDashboard.render();
-                } else {
-                    ProductPlanning.render();
-                }
+                ExistingPages.renderThame();
                 break;
         }
     }
@@ -115,6 +132,20 @@ function toggleSidebar() {
     if (sidebar) {
         sidebar.classList.toggle('collapsed');
     }
+}
+
+// Global accordion toggle for CMO group
+function toggleAccordion(groupId) {
+    const el = document.getElementById(groupId);
+    if (el) {
+        el.classList.toggle('collapsed');
+    }
+}
+
+// Global theme dropdown / notification
+function toggleThemeMenu(event) {
+    if (event) event.stopPropagation();
+    showToast('Theme: Mountain Peak (Dark Alpine)', 'info');
 }
 
 // Start application when DOM is ready

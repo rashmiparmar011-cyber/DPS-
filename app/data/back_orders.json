@@ -1,0 +1,40 @@
+[
+  {
+    "backOrderId": "BO-2026-001",
+    "soNumber": "SO-EXP-2026-0045",
+    "orderDate": "2026-10-14",
+    "customerName": "PharmaCare Australia Pty Ltd",
+    "marketSegment": "Export - Asia-Pacific",
+    "productId": "FG-LEV-150",
+    "productName": "Levetiracetam 100mg/ml Oral Solution 150ml",
+    "orderQty": 2250,
+    "fulfilledQty": 2000,
+    "backOrderQty": 250,
+    "originalDeliveryDate": "2026-11-10",
+    "promisedResolutionDate": "2026-11-28",
+    "reasonCode": "CAPACITY_CONSTRAINT",
+    "reasonDescription": "Primary line batch capped at 2000 units. Balance scheduled into next production run.",
+    "status": "SCHEDULED",
+    "assignedSite": "Thame Site A",
+    "linkedBatchId": "TMP-2026-004"
+  },
+  {
+    "backOrderId": "BO-2026-002",
+    "soNumber": "SO-NHS-2026-0891",
+    "orderDate": "2026-10-18",
+    "customerName": "NHS Supply Chain (Alfreton NDC)",
+    "marketSegment": "Domestic NHS Hospital Tender",
+    "productId": "FG-ALF-100",
+    "productName": "Alfresed (Alimemazine Tartrate) 30mg/5ml Oral Syrup 100ml",
+    "orderQty": 1800,
+    "fulfilledQty": 1500,
+    "backOrderQty": 300,
+    "originalDeliveryDate": "2026-10-31",
+    "promisedResolutionDate": "2026-11-15",
+    "reasonCode": "MATERIAL_HOLD",
+    "reasonDescription": "Active API lot undergoing routine QA re-test. Expected release 28-Oct.",
+    "status": "PENDING_RM",
+    "assignedSite": "Thame Site B",
+    "linkedBatchId": "TMP-2026-006"
+  }
+]
