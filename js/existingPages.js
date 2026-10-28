@@ -36,47 +36,47 @@ const ExistingPages = {
             { label: 'Delayed CMO Orders', value: delayedPOs, color: 'purple' }
         ]);
 
-        // Quick Navigation to the 4 Key Modules
+        // Quick Navigation to Dashboards & Modules
         html += `
             <div style="margin-bottom: 24px;">
                 <h3 style="font-size: 15px; margin-bottom: 12px; color: var(--text-primary); font-weight: 700;">
-                    <i class="fas fa-cubes"></i> Core Planning &amp; Management Modules
+                    <i class="fas fa-gauge-high" style="color:var(--accent-blue);"></i> Dedicated Executive Dashboards &amp; Planning Modules
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                    <div class="card" style="background: #fff; border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; cursor: pointer; transition: transform 0.15s; border-top: 4px solid var(--accent-red);"
+                         onclick="navigateTo('rm-dashboard')">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                            <i class="fas fa-boxes-stacked" style="font-size: 20px; color: var(--accent-red);"></i>
+                            <h4 style="margin: 0; font-size: 14px;">RM Dashboard</h4>
+                        </div>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin: 0 0 10px 0;">
+                            Live inventory oversight, expiry safeguards, shop order allocations &amp; stockout horizons.
+                        </p>
+                        <span class="btn btn-sm btn-danger">Open RM Dashboard &rarr;</span>
+                    </div>
+
+                    <div class="card" style="background: #fff; border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; cursor: pointer; transition: transform 0.15s; border-top: 4px solid var(--accent-purple);"
+                         onclick="navigateTo('cmo-dashboard')">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                            <i class="fas fa-industry" style="font-size: 20px; color: var(--accent-purple);"></i>
+                            <h4 style="margin: 0; font-size: 14px;">CMO Dashboard</h4>
+                        </div>
+                        <p style="font-size: 12px; color: var(--text-secondary); margin: 0 0 10px 0;">
+                            Contract stock valuation, staged multi-batch POs, non-COGS hidden costs &amp; FES/WCS sync.
+                        </p>
+                        <span class="btn btn-sm btn-secondary" style="background: var(--accent-purple); color: #fff;">Open CMO Dashboard &rarr;</span>
+                    </div>
+
                     <div class="card" style="background: #fff; border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; cursor: pointer; transition: transform 0.15s; border-top: 4px solid var(--accent-blue);"
                          onclick="navigateTo('product-planning')">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <i class="fas fa-boxes-stacked" style="font-size: 20px; color: var(--accent-blue);"></i>
+                            <i class="fas fa-cubes-stacked" style="font-size: 20px; color: var(--accent-blue);"></i>
                             <h4 style="margin: 0; font-size: 14px;">Product Planning</h4>
                         </div>
                         <p style="font-size: 12px; color: var(--text-secondary); margin: 0 0 10px 0;">
                             Integrated sales forecast, capacity limits, min/max stock &amp; expiry date safeguards.
                         </p>
                         <span class="btn btn-sm btn-primary">Open Module &rarr;</span>
-                    </div>
-
-                    <div class="card" style="background: #fff; border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; cursor: pointer; transition: transform 0.15s; border-top: 4px solid var(--accent-green);"
-                         onclick="navigateTo('rm-management')">
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <i class="fas fa-cubes" style="font-size: 20px; color: var(--accent-green);"></i>
-                            <h4 style="margin: 0; font-size: 14px;">RM Management</h4>
-                        </div>
-                        <p style="font-size: 12px; color: var(--text-secondary); margin: 0 0 10px 0;">
-                            Raw material inventory planning, expiry &amp; re-test error prevention monitors.
-                        </p>
-                        <span class="btn btn-sm btn-success">Open Module &rarr;</span>
-                    </div>
-
-                    <div class="card" style="background: #fff; border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; cursor: pointer; transition: transform 0.15s; border-top: 4px solid var(--accent-purple);"
-                         onclick="navigateTo('cmo-management')">
-                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                            <i class="fas fa-building" style="font-size: 20px; color: var(--accent-purple);"></i>
-                            <h4 style="margin: 0; font-size: 14px;">CMO Management</h4>
-                        </div>
-                        <p style="font-size: 12px; color: var(--text-secondary); margin: 0 0 10px 0;">
-                            Multi-batch PO raising, hidden cost capture, FES/WCS partner directory &amp; delay tracking.
-                        </p>
-                        <span class="btn btn-sm btn-secondary" style="background: var(--accent-purple); color: #fff;">Open Module &rarr;</span>
                     </div>
 
                     <div class="card" style="background: #fff; border: 1px solid var(--border-color); border-radius: 6px; padding: 16px; cursor: pointer; transition: transform 0.15s; border-top: 4px solid var(--accent-orange);"
@@ -356,6 +356,9 @@ const ExistingPages = {
             <div class="filter-bar">
                 <input type="text" id="cmoStdSearch" placeholder="Search CMO products..." 
                     oninput="ExistingPages.searchCMO(this.value)">
+                <button class="btn btn-primary" onclick="navigateTo('cmo-dashboard')">
+                    <i class="fas fa-gauge-high"></i> Open Executive CMO Dashboard
+                </button>
                 <button class="btn btn-warning btn-icon" title="Export CSV" onclick="ExistingPages.exportCMO()">
                     <i class="fas fa-file-export"></i>
                 </button>

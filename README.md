@@ -12,13 +12,15 @@ An integrated pharmaceutical Demand Planning System (DPS) built to replace manua
 * **Batch Scheduling**: Computes net deficit and suggested batches based on site batch sizes.
 * **Interactive Features**: Automated requirement planning algorithm modal, full CRUD, filters, search, and CSV export.
 
-### 2. Raw Material (RM) Management (`app/js/rmManagement.js`)
+### 2. Raw Material (RM) Management & Executive Dashboard (`app/js/rmManagement.js`, `app/js/rmDashboard.js`)
+* **Executive RM Dashboard**: Real-time KPI scorecards, retest risk watchlist, material category breakdown, and shop order readiness tracking.
 * **Solves Retest/Expiry Limitations**: Overcomes Python script limitations with an integrated **Expiry & Retest Safeguard Monitor**.
 * **Retest Windows**: Real-time batch alert tracking (`OVERDUE`, `DUE < 30D`, `DUE < 90D`, `VALID`).
 * **Material Allocations**: Real-time reservation and issuance tracking linked to open shop orders.
 * **Interactive Features**: Schedule batch retest modal, add material modal, and CSV export.
 
-### 3. Contract Manufacturing Organization (CMO) Management (`app/js/cmoManagement.js`)
+### 3. Contract Manufacturing Organization (CMO) Management & Dashboard (`app/js/cmoManagement.js`, `app/js/cmoDashboard.js`)
+* **Executive CMO Dashboard**: Real-time portfolio valuation (£380k COGS), multi-batch milestone pipeline, non-COGS cost leakage monitor, and FES/WCS partner health.
 * **Automated Demand Planning**: Replenishment calculations using live sales data, lead times (45–70 days), and safety stock.
 * **Multi-Batch Purchase Orders**: Ability to stage and track multiple batch delivery milestones under a single PO.
 * **Capture Hidden Costs (Non-COGS)**: Tracks manual POs for costs not captured in standard COGS (cold storage, non-standard testing, over-labelling, couriers).
@@ -45,6 +47,8 @@ DPS-1/
 │   │   ├── utils.js            # Formatters, toasts, modals, CSV exporter
 │   │   ├── dataStore.js        # Centralized data store with persistence
 │   │   ├── components.js       # DataTable, pagination, stats cards, forms
+│   │   ├── rmDashboard.js      # Executive RM & PM Dashboard module
+│   │   ├── cmoDashboard.js     # Executive CMO Dashboard module
 │   │   ├── productPlanning.js  # Module 1: Product Planning
 │   │   ├── rmManagement.js     # Module 2: RM Management
 │   │   ├── cmoManagement.js    # Module 3: CMO Management

@@ -69,6 +69,9 @@ const CMOManagement = {
                     onclick="CMOManagement.render('directory')">
                     <i class="fas fa-building"></i> CMO Directory (FES/WCS Linked)
                 </button>
+                <button class="btn btn-warning" style="margin-left: auto;" onclick="navigateTo('cmo-dashboard')">
+                    <i class="fas fa-gauge-high"></i> CMO Executive Dashboard &rarr;
+                </button>
             </div>
         `;
 

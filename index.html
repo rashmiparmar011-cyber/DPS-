@@ -18,38 +18,24 @@
             </div>
 
             <nav class="sidebar-nav" id="sidebarNav">
-                <div class="nav-section-title">Main</div>
+                <div class="nav-section-title">Dashboards</div>
 
-                <a class="nav-item" data-page="thame" onclick="navigateTo('thame')">
-                    <span class="nav-icon"><i class="fas fa-chart-line"></i></span>
-                    <span class="nav-label">Thame</span>
-                    <span class="nav-arrow">&#9654;</span>
+                <a class="nav-item active" data-page="rm-dashboard" onclick="navigateTo('rm-dashboard')">
+                    <span class="nav-icon"><i class="fas fa-boxes-stacked"></i></span>
+                    <span class="nav-label">RM Dashboard</span>
+                    <span class="nav-badge" style="background:#ef4444;font-size:10px;">18</span>
                 </a>
 
-                <a class="nav-item" data-page="cmo" onclick="navigateTo('cmo')">
+                <a class="nav-item" data-page="cmo-dashboard" onclick="navigateTo('cmo-dashboard')">
                     <span class="nav-icon"><i class="fas fa-industry"></i></span>
-                    <span class="nav-label">CMO</span>
+                    <span class="nav-label">CMO Dashboard</span>
+                    <span class="nav-badge" style="background:#8b5cf6;font-size:10px;">£380k</span>
                 </a>
 
-                <a class="nav-item" data-page="shop-order" onclick="navigateTo('shop-order')">
-                    <span class="nav-icon"><i class="fas fa-clipboard-list"></i></span>
-                    <span class="nav-label">Shop Order</span>
-                </a>
-
-                <a class="nav-item" data-page="rm-pm-tracking" onclick="navigateTo('rm-pm-tracking')">
-                    <span class="nav-icon"><i class="fas fa-bolt"></i></span>
-                    <span class="nav-label">RM PM Tracking</span>
-                </a>
-
-                <a class="nav-item active" data-page="rm-pm-dashboard" onclick="navigateTo('rm-pm-dashboard')">
-                    <span class="nav-icon"><i class="fas fa-gem"></i></span>
-                    <span class="nav-label">RM PM Dashboard</span>
-                </a>
-
-                <div class="nav-section-title">New Modules</div>
+                <div class="nav-section-title">Planning &amp; Management</div>
 
                 <a class="nav-item" data-page="product-planning" onclick="navigateTo('product-planning')">
-                    <span class="nav-icon"><i class="fas fa-boxes-stacked"></i></span>
+                    <span class="nav-icon"><i class="fas fa-cubes-stacked"></i></span>
                     <span class="nav-label">Product Planning</span>
                 </a>
 
@@ -66,6 +52,33 @@
                 <a class="nav-item" data-page="export-dps" onclick="navigateTo('export-dps')">
                     <span class="nav-icon"><i class="fas fa-globe"></i></span>
                     <span class="nav-label">Export DPS</span>
+                </a>
+
+                <div class="nav-section-title">Operations</div>
+
+                <a class="nav-item" data-page="thame" onclick="navigateTo('thame')">
+                    <span class="nav-icon"><i class="fas fa-chart-line"></i></span>
+                    <span class="nav-label">Thame Operations</span>
+                </a>
+
+                <a class="nav-item" data-page="shop-order" onclick="navigateTo('shop-order')">
+                    <span class="nav-icon"><i class="fas fa-clipboard-list"></i></span>
+                    <span class="nav-label">Shop Order</span>
+                </a>
+
+                <a class="nav-item" data-page="rm-pm-tracking" onclick="navigateTo('rm-pm-tracking')">
+                    <span class="nav-icon"><i class="fas fa-bolt"></i></span>
+                    <span class="nav-label">RM PM Tracking</span>
+                </a>
+
+                <a class="nav-item" data-page="rm-pm-dashboard" onclick="navigateTo('rm-pm-dashboard')">
+                    <span class="nav-icon"><i class="fas fa-gem"></i></span>
+                    <span class="nav-label">Operations Master View</span>
+                </a>
+
+                <a class="nav-item" data-page="cmo" onclick="navigateTo('cmo')">
+                    <span class="nav-icon"><i class="fas fa-table"></i></span>
+                    <span class="nav-label">CMO Stock View</span>
                 </a>
             </nav>
         </aside>
@@ -108,14 +121,18 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/dataStore.js"></script>
     <script src="js/components.js"></script>
+    <script src="js/charts.js"></script>
     <script src="js/productPlanning.js"></script>
     <script src="js/rmManagement.js"></script>
     <script src="js/cmoManagement.js"></script>
     <script src="js/exportDps.js"></script>
     <script src="js/existingPages.js"></script>
+    <script src="js/rmDashboard.js"></script>
+    <script src="js/cmoDashboard.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

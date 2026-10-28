@@ -78,6 +78,9 @@ const RMManagement = {
                     onclick="RMManagement.render('issuance')">
                     <i class="fas fa-dolly-flatbed"></i> Shop Order Material Allocations
                 </button>
+                <button class="btn btn-warning" style="margin-left: auto;" onclick="navigateTo('rm-dashboard')">
+                    <i class="fas fa-gauge-high"></i> RM Executive Dashboard &rarr;
+                </button>
             </div>
         `;
 
